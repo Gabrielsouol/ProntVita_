@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ProntVita - Pacientes</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <script src="cadastro.js" defer></script>
+    <script src="pacientes.js" defer></script>
+</head>
+
+<body class="pagina-pacientes">
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho-sistema">
+
+        <div class="logo-sistema">
+           
+            <span class="logo-pront">
+                Pront
+            </span>
+
+            <span class="logo-vita">
+                Vita
+            </span>
+        </div>
+
+        <div class="usuario">
+
+            <span class="nome-usuario">
+                Usuário
+            </span>
+
+            <div class="foto-usuario">
+                <span>👤</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ESTRUTURA PRINCIPAL -->
+    <div class="estrutura-sistema">
+
+        <!-- MENU LATERAL -->
+        <aside class="menu-lateral">
+
+            <a
+                href="principal.html"
+                class="menu-item"
+            >
+                Início
+            </a>
+
+            <a
+                href="pacientes.html"
+                class="menu-item ativo"
+            >
+                Pacientes
+            </a>
+
+            <a
+                href="historico.html"
+                class="menu-item"
+            >
+                Auditoria
+            </a>
+
+            <a
+                href="timeline.html"
+                class="menu-item"
+            >
+                Linha do Tempo
+            </a>
+
+            <a
+                href="#"
+                class="menu-item"
+                onclick="sairSistema(); return false;"
+            >
+                Sair
+            </a>
+
+        </aside>
+
+
+        <!-- CONTEÚDO -->
+        <main class="conteudo-pacientes">
+
+            <section class="area-pacientes">
+
+                <!-- PESQUISA -->
+                <div class="barra-pesquisa-pacientes">
+
+                    <input
+                        type="text"
+                        id="pesquisaPaciente"
+                        placeholder="Nome, código, telefone ou CPF..."
+                    >
+
+                    <span class="icone-pesquisa"></span>
+
+                </div>
+
+
+                <!-- TÍTULO + BOTÃO -->
+                <div class="cabecalho-pacientes">
+
+                    <h1>
+                        Pacientes
+                    </h1>
+
+                    <button
+                        type="button"
+                        class="botao-novo-paciente"
+                        onclick="abrirModalPaciente()"
+                    >
+                        Novo Paciente
+                    </button>
+
+                </div>
+
+
+                <!-- TABELA -->
+                <div class="tabela-pacientes-wrapper">
+
+                    <table class="tabela-pacientes">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Nome
+                                </th>
+
+                                <th>
+                                    Telefone
+                                </th>
+
+                                <th>
+                                    Código
+                                </th>
+
+                                <th>
+                                    Última<br>
+                                    Consulta
+                                </th>
+
+                                <th>
+                                    Data de<br>
+                                    Nascimento
+                                </th>
+
+                                <th>
+                                    Convênios
+                                </th>
+
+                                <th>
+                                    Ações
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="listaPacientes">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL NOVO / EDITAR PACIENTE
+    ====================================================== -->
+
+    <div
+        class="modal-paciente"
+        id="modalPaciente"
+    >
+
+        <section class="card-modal-paciente">
+
+            <h2 id="tituloModalPaciente">
+                Novo Paciente
+            </h2>
+
+
+            <form
+                class="form-paciente"
+                id="formPaciente"
+            >
+
+                <div class="campo-paciente-completo">
+
+                    <label for="pacienteNome">
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pacienteNome"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="pacienteTelefone">
+                        Telefone
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pacienteTelefone"
+                        placeholder="(31) 99999-9999"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="pacienteCpf">
+                        CPF
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pacienteCpf"
+                        placeholder="000.000.000-00"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="pacienteNascimento">
+                        Data de Nascimento
+                    </label>
+
+                    <input
+                        type="date"
+                        id="pacienteNascimento"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="pacienteConvenio">
+                        Convênio
+                    </label>
+
+                    <select id="pacienteConvenio">
+
+                        <option value="Particular">
+                            Particular
+                        </option>
+
+                        <option value="Unimed">
+                            Unimed
+                        </option>
+
+                        <option value="Bradesco Saúde">
+                            Bradesco Saúde
+                        </option>
+
+                        <option value="Amil">
+                            Amil
+                        </option>
+
+                        <option value="Outro">
+                            Outro
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label for="pacienteUltimaConsulta">
+                        Última Consulta
+                    </label>
+
+                    <input
+                        type="date"
+                        id="pacienteUltimaConsulta"
+                    >
+
+                </div>
+
+
+                <div class="acoes-modal-paciente">
+
+                    <button
+                        type="button"
+                        class="botao-cancelar-paciente"
+                        onclick="fecharModalPaciente()"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button type="submit">
+                        Salvar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL FICHA COMPLETA DO PACIENTE
+    ====================================================== -->
+
+    <div
+        class="modal-paciente"
+        id="modalFichaPaciente"
+    >
+
+        <section class="card-modal-paciente ficha-completa">
+
+            <div class="cabecalho-ficha">
+
+                <h2>
+                    Ficha do Paciente
+                </h2>
+
+                <button
+                    type="button"
+                    class="botao-fechar-ficha"
+                    onclick="fecharFichaPaciente()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- DADOS PESSOAIS -->
+
+            <h3>
+                Dados do Paciente
+            </h3>
+
+            <div class="form-paciente">
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fichaNome"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Telefone
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fichaTelefone"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        CPF
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fichaCpf"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Código
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fichaCodigo"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Data de Nascimento
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fichaNascimento"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Convênio
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fichaConvenio"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Última Consulta
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fichaUltimaConsulta"
+                        readonly
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTÓRICO GERAL -->
+
+            <h3>
+                Histórico Geral
+            </h3>
+
+
+            <div class="form-paciente">
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Procedimentos
+                    </label>
+
+                    <textarea
+                        id="fichaProcedimentos"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Histórico Clínico
+                    </label>
+
+                    <textarea
+                        id="fichaHistoricoClinico"
+                        rows="4"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Alergias
+                    </label>
+
+                    <textarea
+                        id="fichaAlergias"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Medicamentos
+                    </label>
+
+                    <textarea
+                        id="fichaMedicamentos"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Sinais Vitais
+                    </label>
+
+                    <textarea
+                        id="fichaSinaisVitais"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ACOMPANHAMENTO -->
+
+            <h3>
+                Acompanhamento
+            </h3>
+
+
+            <div class="form-paciente">
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Evoluções/Anotações
+                    </label>
+
+                    <textarea
+                        id="fichaEvolucoes"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Avaliações de Enfermagem
+                    </label>
+
+                    <textarea
+                        id="fichaAvaliacoesEnfermagem"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Dieta e Nutrição
+                    </label>
+
+                    <textarea
+                        id="fichaDietaNutricao"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Dispositivos
+                    </label>
+
+                    <textarea
+                        id="fichaDispositivos"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Planos de Cuidado
+                    </label>
+
+                    <textarea
+                        id="fichaPlanosCuidado"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-paciente-completo">
+
+                    <label>
+                        Intercorrências
+                    </label>
+
+                    <textarea
+                        id="fichaIntercorrencias"
+                        rows="3"
+                        readonly
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTÃO FECHAR -->
+
+            <div class="acoes-modal-paciente">
+
+                <button
+                    type="button"
+                    class="botao-cancelar-paciente"
+                    onclick="fecharFichaPaciente()"
+                >
+                    Fechar
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+</html>

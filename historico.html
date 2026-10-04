@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ProntVita - Auditoria</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <script src="cadastro.js" defer></script>
+    <script src="pacientes.js" defer></script>
+
+</head>
+
+
+<body class="pagina-inicio">
+
+
+    <!-- CABEÇALHO -->
+
+    <header class="cabecalho-sistema">
+
+        <div class="logo-sistema">
+
+            <span class="logo-pront">
+                Pront
+            </span>
+
+            <span class="logo-vita">
+                Vita
+            </span>
+
+        </div>
+
+
+        <div class="usuario">
+
+            <span class="nome-usuario">
+                Usuário
+            </span>
+
+            <div class="foto-usuario">
+                <span>👤</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ESTRUTURA -->
+
+    <div class="estrutura-sistema">
+
+
+        <!-- MENU LATERAL -->
+
+        <aside class="menu-lateral">
+
+            <a
+                href="principal.html"
+                class="menu-item"
+            >
+                Início
+            </a>
+
+
+            <a
+                href="pacientes.html"
+                class="menu-item"
+            >
+                Pacientes
+            </a>
+
+
+            <a
+                href="historico.html"
+                class="menu-item ativo"
+            >
+                Auditoria
+            </a>
+
+
+            <a
+                href="timeline.html"
+                class="menu-item"
+            >
+                Linha do Tempo
+            </a>
+
+
+            <a
+                href="#"
+                class="menu-item"
+                onclick="sairSistema()"
+            >
+                Sair
+            </a>
+
+        </aside>
+
+
+        <!-- CONTEÚDO -->
+
+        <main class="conteudo-historico">
+
+
+            <!-- ÁREA PRINCIPAL -->
+
+            <section class="area-historico">
+
+
+                <!-- PESQUISA -->
+
+                <div class="barra-pesquisa-historico">
+
+                    <input
+                        type="text"
+                        placeholder="Nome, código, telefone ou CPF..."
+                    >
+
+                    <div class="icone-pesquisa"></div>
+
+                </div>
+
+
+                <!-- TÍTULO -->
+
+                <div class="titulo-historico">
+
+                    <h1>
+                        Auditoria de Alterações
+                    </h1>
+
+                </div>
+
+
+                <!-- HISTÓRICO -->
+
+                <div class="lista-historico">
+
+                    <div class="historico-vazio">
+                        Nenhum registro de auditoria encontrado.
+                    </div>
+
+                </div></section>
+
+        </main>
+
+    </div>
+
+
+</body>
+
+</html>

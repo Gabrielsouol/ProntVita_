@@ -1,0 +1,3415 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #c9c4c5;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   CABEÇALHO LOGIN / CADASTRO
+========================================= */
+
+.cabecalho {
+    height: 65px;
+    width: 100%;
+    background-color: #10143f;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 15px;
+    gap: 8px;
+}
+
+
+/* =========================================
+   LOGO LOGIN / CADASTRO
+========================================= */
+
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: -1.5px;
+}
+
+.logo span:first-child {
+    color: white;
+}
+
+.logo span:last-child {
+    color: #08b5c5;
+}
+
+
+/* =========================================
+   MENU DOS TRÊS PONTOS
+========================================= */
+
+.menu-container {
+    position: relative;
+}
+
+.menu-botao {
+    width: 35px;
+    height: 40px;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 4px;
+
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-botao span {
+    width: 5px;
+    height: 5px;
+
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   MENU DROPDOWN
+========================================= */
+
+.menu-dropdown {
+    position: absolute;
+
+    top: 42px;
+    left: 0;
+
+    width: 140px;
+
+    background-color: white;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+
+    display: none;
+
+    z-index: 1000;
+}
+
+.menu-dropdown a {
+    display: block;
+
+    padding: 12px 15px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.menu-dropdown a:hover {
+    background-color: #eeeeee;
+}
+
+.menu-dropdown.ativo {
+    display: block;
+}
+
+
+/* =========================================
+   ÁREA PRINCIPAL LOGIN / CADASTRO
+========================================= */
+
+.principal {
+    min-height: calc(100vh - 65px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+/* =========================================
+   CARD LOGIN
+========================================= */
+
+.login-card {
+    width: 390px;
+    min-height: 410px;
+
+    background-color: #f5f5f5;
+
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+    padding: 22px 18px 24px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   CARD CADASTRO
+========================================= */
+
+.cadastro-card {
+    width: 550px;
+    min-height: 460px;
+
+    background-color: #f5f5f5;
+
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+    padding: 15px 18px 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   ÍCONE LOGIN / CADASTRO
+========================================= */
+
+.icone {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 4px;
+}
+
+.login-card .icone {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 6px;
+}
+
+.icone svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================
+   TÍTULOS
+========================================= */
+
+h1 {
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #050505;
+}
+
+.subtitulo {
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #555;
+
+    margin-top: 3px;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   FORMULÁRIOS
+========================================= */
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+
+    font-size: 12px;
+
+    color: #111;
+
+    margin-bottom: 7px;
+}
+
+input,
+select {
+    width: 100%;
+    height: 34px;
+
+    border: 1px solid #999;
+
+    border-radius: 4px;
+
+    background-color: #f7f7f7;
+
+    padding: 0 11px;
+
+    font-size: 11px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #10143f;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+.login-card form label {
+    margin-bottom: 8px;
+}
+
+.login-card input {
+    margin-bottom: 17px;
+}
+
+.esqueci {
+    display: block;
+
+    width: fit-content;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    color: #004fe6;
+
+    text-decoration: none;
+
+    margin-top: -7px;
+    margin-bottom: 19px;
+}
+
+.esqueci:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+button {
+    border: none;
+
+    border-radius: 4px;
+
+    background-color: #10143f;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.login-card button {
+    width: 100%;
+    height: 34px;
+
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #171c52;
+}
+
+
+/* =========================================
+   LINK CRIAR CONTA
+========================================= */
+
+.criar-conta {
+    text-align: center;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    color: #0052e6;
+}
+
+.criar-conta a {
+    color: #0052e6;
+
+    text-decoration: none;
+}
+
+.criar-conta a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   FORMULÁRIO DE CADASTRO
+========================================= */
+
+.form-cadastro {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 72px;
+
+    row-gap: 8px;
+
+    padding: 0;
+}
+
+.campo {
+    width: 100%;
+}
+
+.campo-completo {
+    grid-column: 1 / 3;
+}
+
+select {
+    appearance: auto;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   BOTÃO CADASTRAR
+========================================= */
+
+.botao-cadastro {
+    grid-column: 1 / 3;
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 5px;
+}
+
+.botao-cadastro button {
+    width: 317px;
+    height: 30px;
+
+    font-size: 13px;
+}
+
+.cadastro-card .criar-conta {
+    margin-top: 7px;
+}
+
+
+/* =====================================================
+              TELA INICIAL DO SISTEMA
+===================================================== */
+
+.pagina-inicio {
+    background-color: #c9c4c5;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   CABEÇALHO DO SISTEMA
+========================================= */
+
+.cabecalho-sistema {
+    height: 58px;
+    width: 100%;
+
+    background-color: #10143f;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 15px;
+}
+
+
+/* =========================================
+   LOGO DO SISTEMA
+========================================= */
+
+.logo-sistema {
+    display: flex;
+
+    align-items: center;
+
+    font-size: 29px;
+
+    font-weight: bold;
+}
+
+.logo-pront {
+    color: white;
+}
+
+.logo-vita {
+    color: #08b5c5;
+}
+
+.icone-logo {
+    color: #08b5c5;
+
+    font-size: 25px;
+
+    margin-right: 5px;
+}
+
+
+/* =========================================
+   USUÁRIO
+========================================= */
+
+.usuario {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.nome-usuario {
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.foto-usuario {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background-color: white;
+
+    border: 2px solid #ddd;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.foto-usuario span {
+    font-size: 24px;
+}
+
+
+/* =========================================
+   BOTÃO SAIR
+========================================= */
+
+.botao-sair {
+    width: 50px;
+    height: 28px;
+
+    background-color: #b51e1e;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 4px;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.botao-sair:hover {
+    background-color: #8f1717;
+}
+
+
+/* =========================================
+   ESTRUTURA DO SISTEMA
+========================================= */
+
+.estrutura-sistema {
+    display: flex;
+
+    min-height: calc(100vh - 58px);
+}
+
+
+/* =========================================
+   MENU LATERAL
+========================================= */
+
+.menu-lateral {
+    width: 95px;
+    min-width: 95px;
+
+    background-color: #19165d;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.menu-item {
+    width: 100%;
+
+    min-height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    padding: 5px;
+}
+
+.menu-item:hover {
+    background-color: #29258a;
+}
+
+.menu-item.ativo {
+    background-color: #302da2;
+}
+
+
+/* =========================================
+   CONTEÚDO INICIAL
+========================================= */
+
+.conteudo-inicio {
+    flex: 1;
+
+    padding: 20px 10px;
+}
+
+
+/* =========================================
+   RESUMO DOS PACIENTES
+========================================= */
+
+.resumo-pacientes {
+    width: 100%;
+
+    min-height: 132px;
+
+    background-color: #f8f8f8;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    align-items: center;
+}
+
+.resumo-card {
+    text-align: center;
+
+    color: #222;
+}
+
+.resumo-card strong {
+    display: block;
+
+    font-size: 25px;
+
+    color: #888;
+
+    margin-bottom: 12px;
+}
+
+.resumo-card p {
+    font-size: 14px;
+
+    font-weight: bold;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   PACIENTES ATENDIDOS
+========================================= */
+
+.resumo-card.atendidos strong {
+    color: #39884c;
+}
+
+.resumo-card.atendidos p {
+    color: #39884c;
+}
+
+
+/* =========================================
+   PACIENTES QUE FALTARAM
+========================================= */
+
+.resumo-card.faltaram strong {
+    color: #b51e1e;
+}
+
+.resumo-card.faltaram p {
+    color: #b51e1e;
+}
+
+
+/* =========================================
+   OPÇÕES DO SISTEMA
+========================================= */
+
+.opcoes-sistema {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 27px;
+}
+
+.opcao-card {
+    background-color: #f8f8f8;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    min-height: 132px;
+
+    padding: 11px;
+}
+
+.opcao-card h2 {
+    font-size: 21px;
+
+    color: #080808;
+
+    margin-bottom: 8px;
+}
+
+.opcao-card p {
+    font-size: 13px;
+
+    color: #666;
+
+    margin-bottom: 21px;
+}
+
+.opcao-card button {
+    width: 135px;
+    height: 36px;
+
+    background-color: #10143f;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 4px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.opcao-card button:hover {
+    background-color: #191e5b;
+}
+
+
+/* =====================================================
+                    TELA DE PACIENTES
+===================================================== */
+
+.pagina-pacientes {
+    background-color: #c9c4c5;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   CONTEÚDO
+========================================= */
+
+.conteudo-pacientes {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 10px 14px 12px;
+}
+
+
+/* =========================================
+   ÁREA BRANCA
+========================================= */
+
+.area-pacientes {
+    width: 100%;
+
+    min-height: calc(100vh - 80px);
+
+    background-color: #f7f7f7;
+
+    border: 1px solid #c7c7c7;
+
+    border-radius: 5px;
+
+    padding: 10px;
+
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   BARRA DE PESQUISA
+========================================= */
+
+.barra-pesquisa-pacientes {
+    width: 100%;
+
+    height: 34px;
+
+    background-color: white;
+
+    border: 1px solid #bdbdbd;
+
+    border-radius: 3px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 9px;
+
+    margin-bottom: 10px;
+}
+
+.barra-pesquisa-pacientes input {
+    flex: 1;
+
+    width: auto;
+
+    height: 30px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 0 4px;
+
+    margin: 0;
+
+    font-size: 12px;
+}
+
+.barra-pesquisa-pacientes input::placeholder {
+    color: #777;
+}
+
+
+/* =========================================
+   ÍCONE DE PESQUISA
+========================================= */
+
+.icone-pesquisa {
+    width: 20px;
+
+    height: 20px;
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+.icone-pesquisa::before {
+    content: "";
+
+    position: absolute;
+
+    width: 10px;
+
+    height: 10px;
+
+    border: 2px solid #cfcfcf;
+
+    border-radius: 50%;
+
+    left: 1px;
+
+    top: 1px;
+}
+
+.icone-pesquisa::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 2px;
+
+    background-color: #cfcfcf;
+
+    transform: rotate(45deg);
+
+    left: 11px;
+
+    top: 13px;
+
+    border-radius: 2px;
+}
+
+
+/* =========================================
+   CABEÇALHO PACIENTES
+========================================= */
+
+.cabecalho-pacientes {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 2px 0 9px;
+}
+
+.cabecalho-pacientes h1 {
+    font-size: 18px;
+
+    text-align: left;
+
+    margin: 0;
+
+    color: #111;
+}
+
+
+/* =========================================
+   BOTÃO NOVO PACIENTE
+========================================= */
+
+.botao-novo-paciente {
+    width: 96px;
+
+    height: 29px;
+
+    border-radius: 4px;
+
+    background-color: #10143f;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.botao-novo-paciente:hover {
+    background-color: #191e5b;
+}
+
+
+/* =========================================
+   TABELA
+========================================= */
+
+.tabela-pacientes-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background-color: white;
+}
+
+.tabela-pacientes {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+
+    font-size: 11px;
+
+    color: #333;
+}
+
+.tabela-pacientes thead th {
+    background-color: #d9d9d9;
+
+    border-top: 1px solid #bcbcbc;
+
+    border-bottom: 1px solid #aaa;
+
+    padding: 6px 7px;
+
+    text-align: left;
+
+    font-weight: normal;
+
+    line-height: 1.1;
+}
+
+.tabela-pacientes tbody td {
+    height: 36px;
+
+    border-bottom: 1px solid #d1d1d1;
+
+    padding: 5px 7px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    vertical-align: middle;
+}
+
+.tabela-pacientes tbody tr:hover {
+    background-color: #f4f4f4;
+}
+
+
+/* =========================================
+   LARGURA DAS COLUNAS
+========================================= */
+
+.tabela-pacientes th:nth-child(1),
+.tabela-pacientes td:nth-child(1) {
+    width: 23%;
+}
+
+.tabela-pacientes th:nth-child(2),
+.tabela-pacientes td:nth-child(2) {
+    width: 18%;
+}
+
+.tabela-pacientes th:nth-child(3),
+.tabela-pacientes td:nth-child(3) {
+    width: 10%;
+}
+
+.tabela-pacientes th:nth-child(4),
+.tabela-pacientes td:nth-child(4) {
+    width: 12%;
+}
+
+.tabela-pacientes th:nth-child(5),
+.tabela-pacientes td:nth-child(5) {
+    width: 14%;
+}
+
+.tabela-pacientes th:nth-child(6),
+.tabela-pacientes td:nth-child(6) {
+    width: 14%;
+}
+
+.tabela-pacientes th:nth-child(7),
+.tabela-pacientes td:nth-child(7) {
+    width: 9%;
+}
+
+
+/* =========================================
+   AÇÕES DO PACIENTE
+========================================= */
+
+.acoes-paciente {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.botao-acao-paciente {
+    border: none;
+
+    background: transparent;
+
+    width: 18px;
+
+    height: 22px;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.botao-acao-paciente:hover {
+    background: transparent;
+}
+
+
+/* =========================================
+   ÍCONE EDITAR
+========================================= */
+
+.icone-editar {
+    width: 14px;
+
+    height: 4px;
+
+    background-color: #11115e;
+
+    transform: rotate(-45deg);
+
+    position: relative;
+
+    border-radius: 1px;
+}
+
+.icone-editar::after {
+    content: "";
+
+    position: absolute;
+
+    width: 3px;
+
+    height: 4px;
+
+    background-color: #11115e;
+
+    left: -3px;
+
+    top: 0;
+}
+
+
+/* =========================================
+   ÍCONE EXCLUIR
+========================================= */
+
+.icone-excluir {
+    width: 10px;
+
+    height: 13px;
+
+    border: 2px solid #11115e;
+
+    border-radius: 1px;
+
+    position: relative;
+}
+
+.icone-excluir::before {
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+
+    height: 2px;
+
+    background-color: #11115e;
+
+    top: -5px;
+
+    left: -1px;
+}
+
+.icone-excluir::after {
+    content: "";
+
+    position: absolute;
+
+    width: 4px;
+
+    height: 2px;
+
+    background-color: #11115e;
+
+    top: -8px;
+
+    left: 1px;
+}
+
+
+/* =========================================
+   NENHUM PACIENTE
+========================================= */
+
+.sem-pacientes {
+    text-align: center;
+
+    color: #777;
+
+    padding: 25px 10px !important;
+
+    height: 55px !important;
+}
+
+
+/* =====================================================
+                 MODAL NOVO PACIENTE
+===================================================== */
+
+/*
+   IMPORTANTE:
+   O modal fica escondido quando a página abre.
+   Quando o JavaScript adiciona a classe "ativo",
+   ele aparece centralizado na tela.
+*/
+
+.modal-paciente {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.45);
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 9999;
+}
+
+
+/* =========================================
+   MODAL ATIVO
+========================================= */
+
+.modal-paciente.ativo {
+    display: flex;
+}
+
+
+/* =========================================
+   CARD DO MODAL
+========================================= */
+
+.card-modal-paciente {
+    width: 420px;
+
+    max-width: calc(100vw - 30px);
+
+    max-height: calc(100vh - 30px);
+
+    overflow-y: auto;
+
+    background-color: #f5f5f5;
+
+    border: 1px solid #bbb;
+
+    border-radius: 5px;
+
+    padding: 18px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   TÍTULO DO MODAL
+========================================= */
+
+.card-modal-paciente h2 {
+    margin: 0 0 15px 0;
+
+    font-size: 18px;
+
+    color: #111;
+}
+
+
+/* =========================================
+   FORMULÁRIO DO PACIENTE
+========================================= */
+
+.form-paciente {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px 14px;
+
+    width: 100%;
+}
+
+.form-paciente .campo-paciente-completo {
+    grid-column: 1 / 3;
+}
+
+
+/* =========================================
+   LABEL DO PACIENTE
+========================================= */
+
+.form-paciente label {
+    display: block;
+
+    font-size: 11px;
+
+    margin-bottom: 5px;
+
+    color: #111;
+}
+
+
+/* =========================================
+   INPUTS DO PACIENTE
+========================================= */
+
+.form-paciente input,
+.form-paciente select {
+    width: 100%;
+
+    height: 32px;
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 5px 8px;
+
+    font-size: 11px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 3px;
+
+    background-color: white;
+}
+
+
+/* =========================================
+   BOTÕES DO MODAL
+========================================= */
+
+.acoes-modal-paciente {
+    grid-column: 1 / 3;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 5px;
+}
+
+.acoes-modal-paciente button {
+    height: 31px;
+
+    padding: 0 15px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background-color: #10143f;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.acoes-modal-paciente button:hover {
+    background-color: #191e5b;
+}
+
+
+/* =========================================
+   BOTÃO CANCELAR
+========================================= */
+
+.botao-cancelar-paciente {
+    background-color: #777 !important;
+}
+
+.botao-cancelar-paciente:hover {
+    background-color: #666 !important;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE LOGIN / CADASTRO
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .cabecalho {
+        height: 60px;
+
+        padding-left: 10px;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .principal {
+        min-height: calc(100vh - 60px);
+
+        padding: 20px 15px;
+    }
+
+    .login-card,
+    .cadastro-card {
+        width: 100%;
+
+        max-width: 550px;
+    }
+
+    .form-cadastro {
+        grid-template-columns: 1fr;
+
+        column-gap: 0;
+
+        row-gap: 10px;
+    }
+
+    .campo-completo {
+        grid-column: 1;
+    }
+
+    .botao-cadastro {
+        grid-column: 1;
+    }
+
+    .botao-cadastro button {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE TELA INICIAL
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .nome-usuario {
+        display: none;
+    }
+
+    .cabecalho-sistema {
+        padding: 0 10px;
+    }
+
+    .logo-sistema {
+        font-size: 25px;
+    }
+
+    .menu-lateral {
+        width: 75px;
+
+        min-width: 75px;
+    }
+
+    .menu-item {
+        font-size: 11px;
+    }
+
+    .resumo-pacientes {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+
+        padding: 15px;
+    }
+
+    .opcoes-sistema {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE PACIENTES
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .tabela-pacientes {
+        min-width: 800px;
+    }
+}
+
+
+/* =====================================================
+   MODAL EM TELAS MENORES
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .card-modal-paciente {
+        width: calc(100vw - 30px);
+
+        max-height: calc(100vh - 30px);
+
+        padding: 15px;
+    }
+
+    .form-paciente {
+        grid-template-columns: 1fr;
+    }
+
+    .form-paciente .campo-paciente-completo,
+    .acoes-modal-paciente {
+        grid-column: 1;
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .menu-lateral {
+        width: 65px;
+
+        min-width: 65px;
+    }
+
+    .menu-item {
+        font-size: 10px;
+    }
+
+    .conteudo-inicio {
+        padding: 10px 6px;
+    }
+
+    .resumo-card strong {
+        font-size: 21px;
+    }
+
+    .resumo-card p {
+        font-size: 11px;
+    }
+
+    .login-card {
+        width: 100%;
+
+        min-height: 400px;
+
+        padding: 20px 15px;
+    }
+
+    .conteudo-pacientes {
+        padding: 8px 6px;
+    }
+
+    .area-pacientes {
+        padding: 8px;
+    }
+
+    .cabecalho-pacientes h1 {
+        font-size: 17px;
+    }
+
+    .botao-novo-paciente {
+        width: 100px;
+    }
+}
+
+/* =====================================================
+   TELA HISTÓRICO
+===================================================== */
+
+.conteudo-historico {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 10px;
+}
+
+
+/* =========================================
+   ÁREA DO HISTÓRICO
+========================================= */
+
+.area-historico {
+    width: 100%;
+
+    min-height: calc(100vh - 78px);
+
+    background-color: #f8f8f8;
+
+    border: 1px solid #c9c9c9;
+
+    border-radius: 5px;
+
+    padding: 10px;
+}
+
+
+/* =========================================
+   BARRA DE PESQUISA
+========================================= */
+
+.barra-pesquisa-historico {
+    width: 100%;
+
+    height: 34px;
+
+    background-color: white;
+
+    border: 1px solid #bdbdbd;
+
+    border-radius: 3px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 8px;
+
+    margin-bottom: 7px;
+}
+
+
+.barra-pesquisa-historico input {
+    flex: 1;
+
+    width: auto;
+
+    height: 30px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 0 3px;
+
+    margin: 0;
+
+    font-size: 12px;
+}
+
+
+.barra-pesquisa-historico input:focus {
+    border: none;
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.titulo-historico {
+    padding: 0 2px 8px;
+}
+
+
+.titulo-historico h1 {
+    font-size: 18px;
+
+    text-align: left;
+
+    color: #111;
+}
+
+
+/* =========================================
+   LISTA DE CARDS
+========================================= */
+
+.lista-historico {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    column-gap: 44px;
+
+    row-gap: 16px;
+
+    padding: 0 1px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card-historico {
+    height: 99px;
+
+    border: 1px solid #999;
+
+    background-color: #fafafa;
+
+    padding: 8px 5px 6px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+/* =========================================
+   INFORMAÇÕES
+========================================= */
+
+.linha-historico {
+    display: flex;
+
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+
+.rotulo-historico {
+    display: block;
+
+    font-size: 11px;
+
+    color: #111;
+
+    margin-bottom: 8px;
+}
+
+
+.valor-historico {
+    display: block;
+
+    font-size: 11px;
+
+    color: #666;
+
+    line-height: 1.15;
+}
+
+
+.paciente-historico {
+    text-align: right;
+
+    padding-right: 2px;
+}
+
+
+/* =========================================
+   BOTÃO VISUALIZAR
+========================================= */
+
+.card-historico button {
+    width: 90px;
+
+    height: 19px;
+
+    align-self: center;
+
+    background-color: #10143f;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 4px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.card-historico button:hover {
+    background-color: #191e5b;
+}
+
+
+/* =========================================
+   HISTÓRICO - RESPONSIVO
+========================================= */
+
+@media (max-width: 900px) {
+
+    .lista-historico {
+        grid-template-columns: repeat(2, 1fr);
+
+        column-gap: 15px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .lista-historico {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .card-historico {
+        width: 100%;
+    }
+
+}
+
+/* =========================================
+   LINHA DO TEMPO - TIMELINE
+========================================= */
+
+.conteudo-linha-tempo {
+    flex: 1;
+    padding: 25px;
+    background-color: #f5f5f5;
+    min-height: calc(100vh - 80px);
+}
+
+.area-linha-tempo {
+    background-color: white;
+    min-height: 500px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+
+/* BARRA DE PESQUISA */
+
+.barra-pesquisa-linha-tempo {
+    width: 100%;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.barra-pesquisa-linha-tempo input {
+    width: 100%;
+    height: 100%;
+    padding: 0 45px 0 15px;
+
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.barra-pesquisa-linha-tempo input:focus {
+    outline: none;
+    border-color: #17145c;
+}
+
+
+/* TÍTULO */
+
+.titulo-linha-tempo {
+    margin-bottom: 10px;
+}
+
+.titulo-linha-tempo h1 {
+    margin: 0;
+    padding: 0;
+
+    font-size: 20px;
+    color: #111;
+}
+
+
+/* ÁREA DA TABELA */
+
+.lista-linha-tempo {
+    width: 100%;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+}
+
+
+/* CABEÇALHO */
+
+.cabecalho-tabela-tempo {
+    display: grid;
+
+    grid-template-columns:
+        1.3fr
+        1fr
+        0.8fr
+        1fr
+        1.4fr;
+
+    align-items: center;
+
+    min-height: 38px;
+
+    background-color: #eeeeee;
+
+    border-bottom: 1px solid #999;
+
+    font-size: 13px;
+    color: #222;
+}
+
+.cabecalho-tabela-tempo span {
+    padding: 8px;
+}
+
+
+/* ÁREA VAZIA */
+
+.linha-tempo-vazia {
+    min-height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #777;
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 800px) {
+
+    .conteudo-linha-tempo {
+        padding: 15px;
+    }
+
+    .cabecalho-tabela-tempo {
+        grid-template-columns:
+            1.2fr
+            1fr
+            0.8fr
+            1fr
+            1fr;
+
+        font-size: 12px;
+    }
+
+}
+
+/* =====================================================
+   DOCUMENTOS E ATESTADOS
+   ===================================================== */
+
+.tela-documentos {
+    width: 100%;
+    min-height: calc(100vh - 98px);
+
+    background-color: #c9c4c5;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CABEÇALHO DA TELA
+   ===================================================== */
+
+.cabecalho-documentos {
+    width: 100%;
+
+    background-color: #f8f8f8;
+
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+
+    padding: 10px 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+}
+
+
+.cabecalho-documentos h2 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #111;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   BOTÃO VOLTAR
+   ===================================================== */
+
+.btn-voltar {
+    width: 85px;
+    height: 30px;
+
+    background-color: #10143f;
+
+    color: white;
+
+    border: none;
+    border-radius: 4px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.btn-voltar:hover {
+    background-color: #191e5b;
+}
+
+
+/* =====================================================
+   BARRA DE PESQUISA
+   ===================================================== */
+
+.barra-pesquisa {
+    width: 100%;
+    height: 38px;
+
+    background-color: #f8f8f8;
+
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+
+    padding: 5px 10px;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    position: relative;
+}
+
+
+.barra-pesquisa input {
+    width: 100%;
+    height: 30px;
+
+    background-color: white;
+
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+
+    padding: 0 38px 0 10px;
+
+    font-size: 12px;
+
+    box-sizing: border-box;
+
+    outline: none;
+}
+
+
+.barra-pesquisa input:focus {
+    border-color: #10143f;
+}
+
+
+/* =====================================================
+   ÍCONE DA PESQUISA
+   ===================================================== */
+
+.icone-pesquisa-documentos {
+    position: absolute;
+
+    right: 20px;
+
+    width: 18px;
+    height: 18px;
+
+    pointer-events: none;
+}
+
+
+.icone-pesquisa-documentos::before {
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    border: 2px solid #c5c5c5;
+
+    border-radius: 50%;
+
+    left: 0;
+    top: 0;
+}
+
+
+.icone-pesquisa-documentos::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 2px;
+
+    background-color: #c5c5c5;
+
+    transform: rotate(45deg);
+
+    left: 10px;
+    top: 11px;
+
+    border-radius: 2px;
+}
+
+
+/* =====================================================
+   ÁREA DA TABELA
+   ===================================================== */
+
+.tabela-documentos {
+    width: 100%;
+
+    background-color: #f8f8f8;
+
+    border: 1px solid #ccc;
+    border-top: none;
+
+    border-radius: 0 0 5px 5px;
+
+    padding: 0 10px 20px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   TABELA
+   ===================================================== */
+
+#tabelaPacientes {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+
+    background-color: white;
+
+    font-size: 11px;
+
+    color: #333;
+}
+
+
+/* CABEÇALHO */
+
+#tabelaPacientes thead th {
+    background-color: #d9d9d9;
+
+    border-top: 1px solid #bcbcbc;
+    border-bottom: 1px solid #aaa;
+
+    padding: 7px;
+
+    text-align: left;
+
+    font-weight: normal;
+
+    color: #222;
+}
+
+
+/* LINHAS */
+
+#tabelaPacientes tbody td {
+    height: 36px;
+
+    padding: 5px 7px;
+
+    border-bottom: 1px solid #d1d1d1;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    vertical-align: middle;
+}
+
+
+#tabelaPacientes tbody tr:hover {
+    background-color: #f4f4f4;
+}
+
+
+/* =====================================================
+   LARGURA DAS COLUNAS
+   ===================================================== */
+
+#tabelaPacientes th:nth-child(1),
+#tabelaPacientes td:nth-child(1) {
+    width: 25%;
+}
+
+
+#tabelaPacientes th:nth-child(2),
+#tabelaPacientes td:nth-child(2) {
+    width: 18%;
+}
+
+
+#tabelaPacientes th:nth-child(3),
+#tabelaPacientes td:nth-child(3) {
+    width: 13%;
+}
+
+
+#tabelaPacientes th:nth-child(4),
+#tabelaPacientes td:nth-child(4) {
+    width: 20%;
+}
+
+
+#tabelaPacientes th:nth-child(5),
+#tabelaPacientes td:nth-child(5) {
+    width: 24%;
+}
+
+
+/* =====================================================
+   BOTÃO VISUALIZAR DOCUMENTOS
+   ===================================================== */
+
+.btn-visualizar {
+    width: 90px;
+    height: 25px;
+
+    background-color: #10143f;
+
+    color: white;
+
+    border: none;
+    border-radius: 4px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.btn-visualizar:hover {
+    background-color: #191e5b;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .tela-documentos {
+        padding: 0;
+    }
+
+
+    .cabecalho-documentos h2 {
+        font-size: 16px;
+    }
+
+
+    .tabela-documentos {
+        overflow-x: auto;
+    }
+
+
+    #tabelaPacientes {
+        min-width: 700px;
+    }
+
+}
+
+/* =====================================================
+   BOTÃO VISUALIZAR FICHA
+===================================================== */
+
+.botao-visualizar-paciente {
+    background-color: #11154f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-visualizar-paciente:hover {
+    background-color: #292d8f;
+}
+
+
+/* =====================================================
+   AÇÕES DA TABELA
+===================================================== */
+
+.acoes-paciente {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+
+/* =====================================================
+   FICHA DO PACIENTE
+===================================================== */
+
+#modalFichaPaciente {
+    z-index: 9999;
+}
+
+
+#modalFichaPaciente .card-modal-paciente {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+
+/* =====================================================
+   AUDITORIA - CARDS DOS REGISTROS
+===================================================== */
+
+.historico-vazio {
+    grid-column: 1 / -1;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+}
+
+.item-historico {
+    border: 1px solid #999;
+    background-color: #fafafa;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.historico-data { color: #666; }
+
+.historico-nome {
+    color: #111;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.historico-acao {
+    color: #10143f;
+    font-weight: bold;
+}
+
+.historico-descricao { color: #444; }
+
+.historico-dados {
+    color: #666;
+    font-size: 10.5px;
+}
+
+
+/* =====================================================
+   LINHA DO TEMPO - LINHAS DOS PACIENTES
+===================================================== */
+
+.linha-paciente-tempo {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 0.8fr 1fr 1.4fr;
+    align-items: start;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    color: #222;
+}
+
+.linha-paciente-tempo > span {
+    padding: 8px;
+    overflow-wrap: anywhere;
+}
+
+.evento-timeline {
+    border-left: 3px solid #08a9c7;
+    padding: 2px 0 2px 8px;
+    margin-bottom: 8px;
+}
+
+.evento-data {
+    font-size: 11px;
+    color: #777;
+}
+
+.evento-titulo { font-weight: bold; }
+
+.evento-descricao {
+    font-size: 12px;
+    color: #555;
+}
+
+@media (max-width: 800px) {
+    .linha-paciente-tempo {
+        grid-template-columns: 1.2fr 1fr 0.8fr 1fr 1fr;
+        font-size: 12px;
+    }
+}
+
+
+
+/* =====================================================
+   SOLICITAR EXAMES
+===================================================== */
+
+.tela-exames {
+    background-color: #c9c4c5;
+}
+
+.form-exames {
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.bloco-exames {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.bloco-exames h3 {
+    margin: 0 0 10px;
+    font-size: 17px;
+    color: #111;
+}
+
+.grade-exames {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+
+.campo-exame-completo {
+    grid-column: 1 / -1;
+}
+
+.campo-exame label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 3px;
+    color: #111;
+}
+
+.campo-exame input,
+.campo-exame select,
+.cabecalho-selecao-exames input {
+    width: 100%;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    font-size: 12px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.cabecalho-selecao-exames {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+
+.cabecalho-selecao-exames h3 {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.cabecalho-selecao-exames input {
+    max-width: 340px;
+}
+
+.lista-exames {
+    border: 1px solid #bbb;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+.item-exame {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 14px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.item-exame:last-child { border-bottom: none; }
+
+.item-exame:hover { background-color: #f4f6fb; }
+
+.item-exame input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: #10143f;
+}
+
+.item-exame strong {
+    display: block;
+    font-size: 13px;
+    color: #10143f;
+}
+
+.item-exame small {
+    display: block;
+    font-size: 12px;
+    color: #555;
+}
+
+.exames-vazio {
+    padding: 30px;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
+
+.btn-adicionar-exame {
+    width: 100%;
+    margin-top: 12px;
+    height: 34px;
+    background-color: #10143f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-adicionar-exame:hover { background-color: #191e5b; }
+
+.acoes-exames {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.acoes-exames button {
+    height: 34px;
+    min-width: 110px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-solicitar-exames {
+    background-color: #10143f;
+    color: #fff;
+}
+
+.btn-cancelar-exames {
+    background-color: #ddd;
+    color: #111;
+}
+
+@media (max-width: 700px) {
+    .grade-exames { grid-template-columns: 1fr; }
+    .cabecalho-selecao-exames { flex-direction: column; align-items: stretch; }
+    .cabecalho-selecao-exames input { max-width: none; }
+}
+
+
+
+/* =====================================================
+   JANELA REDEFINIR SENHA (LOGIN)
+===================================================== */
+
+.modal-senha { width: 380px; }
+
+.texto-modal-senha {
+    margin: -6px 0 14px;
+    font-size: 12px;
+    color: #555;
+}
+
+.form-senha label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #111;
+}
+
+.form-senha input {
+    width: 100%;
+    height: 32px;
+    margin-bottom: 12px;
+    padding: 0 8px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    font-size: 12px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.form-senha input:focus {
+    outline: none;
+    border-color: #10143f;
+}
+
+.form-senha .acoes-modal-paciente { margin-top: 4px; }
+
+
+/* =====================================================
+   JANELA DOCUMENTOS DO PACIENTE
+===================================================== */
+
+.dados-doc-paciente {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: #111;
+    overflow-wrap: anywhere;
+}
+
+.dados-doc-paciente small {
+    display: block;
+    font-size: 11px;
+    color: #666;
+}
+
+.lista-docs-modal {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    max-height: 220px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+}
+
+.doc-vazio {
+    padding: 24px 12px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
+
+.doc-item {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+}
+
+.doc-item:last-child { border-bottom: none; }
+
+.doc-item strong { color: #10143f; }
+
+.doc-item span {
+    float: right;
+    color: #666;
+}
+
+.doc-item p {
+    margin: 4px 0 0;
+    color: #444;
+}
+
+
+
+/* =====================================================
+   TELA INICIAL - BANNER NO RODAPÉ DA ÁREA
+===================================================== */
+
+#telaInicio {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 98px);
+}
+
+.banner-setembro-amarelo {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.banner-setembro-amarelo img {
+    display: block;
+    width: 100%;
+    max-width: 1102px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+
+
+/* =====================================================
+   RESUMO DE EXAMES (TELA INICIAL)
+===================================================== */
+
+.resumo-card.realizados strong,
+.resumo-card.realizados p {
+    color: #39884c;
+}
+
+.resumo-card.pendentes strong,
+.resumo-card.pendentes p {
+    color: #c27803;
+}
+
+/* =====================================================
+   ACOMPANHAMENTO DOS EXAMES SOLICITADOS
+===================================================== */
+
+.area-solicitacoes {
+    padding: 0 12px 12px;
+    box-sizing: border-box;
+}
+
+.solicitacao {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    background-color: #fafafa;
+}
+
+.solicitacao-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    color: #111;
+}
+
+.solicitacao-cabecalho span { color: #666; }
+
+.solicitacao-finalidade {
+    padding: 6px 12px 0;
+    font-size: 12px;
+    color: #555;
+}
+
+.exame-acompanhamento {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.exame-acompanhamento:last-child { border-bottom: none; }
+
+.exame-info { flex: 1; min-width: 0; }
+
+.exame-info strong {
+    display: block;
+    font-size: 13px;
+    color: #10143f;
+}
+
+.exame-info small {
+    font-size: 12px;
+    color: #555;
+}
+
+.selo-exame {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.selo-pendente {
+    background-color: #fdf0d5;
+    color: #c27803;
+}
+
+.selo-realizado {
+    background-color: #dff0e3;
+    color: #39884c;
+}
+
+.btn-status-exame {
+    height: 28px;
+    padding: 0 12px;
+    background-color: #10143f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-status-exame:hover { background-color: #191e5b; }
+
+@media (max-width: 700px) {
+    .exame-acompanhamento { flex-wrap: wrap; }
+}
+
+
+
+/* =====================================================================
+   RESPONSIVIDADE GERAL (celular, tablet e telas grandes)
+   Fica no fim do arquivo para sobrescrever regras anteriores.
+===================================================================== */
+
+/* imagens e mídia nunca passam da largura da tela */
+img, svg, video { max-width: 100%; }
+
+/* nada estoura a largura das telas de login/cadastro */
+.login-card,
+.cadastro-card { max-width: 100%; }
+
+/* ---------- TELAS MUITO GRANDES ---------- */
+@media (min-width: 1700px) {
+    .estrutura-sistema > main {
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+}
+
+/* ---------- NOTEBOOK / TABLET NA HORIZONTAL ---------- */
+@media (min-width: 901px) and (max-width: 1100px) {
+    .lista-historico { column-gap: 20px; }
+}
+
+/* ---------- CADASTRO EM TABLET ---------- */
+@media (min-width: 601px) and (max-width: 760px) {
+    .form-cadastro { column-gap: 28px; }
+}
+
+/* ---------- TABLET NA VERTICAL E CELULAR ---------- */
+@media (max-width: 768px) {
+
+    /* menu lateral vira uma barra horizontal embaixo do cabeçalho */
+    .estrutura-sistema {
+        flex-direction: column;
+        min-height: calc(100vh - 58px);
+    }
+
+    .menu-lateral {
+        width: 100%;
+        min-width: 0;
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .menu-item {
+        flex: 1 0 auto;
+        width: auto;
+        min-width: 72px;
+        min-height: 46px;
+        padding: 8px 12px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .conteudo-inicio,
+    .conteudo-pacientes,
+    .conteudo-historico,
+    .conteudo-linha-tempo {
+        width: 100%;
+        min-width: 0;
+        padding: 10px;
+    }
+
+    /* áreas não precisam de altura mínima de tela cheia */
+    .area-pacientes,
+    .area-historico,
+    .area-linha-tempo,
+    .tela-documentos,
+    .tela-exames {
+        min-height: 0;
+    }
+
+    #telaInicio { min-height: 0; }
+
+    .banner-setembro-amarelo { padding-top: 16px; }
+
+    /* campos com 16px evitam o zoom automático do iPhone ao digitar */
+    input,
+    select,
+    textarea,
+    .barra-pesquisa-pacientes input,
+    .barra-pesquisa-historico input,
+    .barra-pesquisa-linha-tempo input,
+    .barra-pesquisa input,
+    .form-paciente input,
+    .form-paciente select,
+    .form-paciente textarea,
+    .form-senha input,
+    .campo-exame input,
+    .campo-exame select,
+    .cabecalho-selecao-exames input {
+        font-size: 16px;
+    }
+
+    .barra-pesquisa-pacientes,
+    .barra-pesquisa-historico { height: 40px; }
+
+    .barra-pesquisa { height: 46px; }
+
+    .barra-pesquisa input { height: 36px; }
+
+    /* títulos e botões de topo quebram linha em vez de estourar */
+    .cabecalho-pacientes,
+    .cabecalho-documentos {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .botao-novo-paciente,
+    .btn-voltar {
+        min-height: 38px;
+    }
+
+    .botao-novo-paciente { width: auto; padding: 0 14px; }
+
+    .btn-voltar { width: auto; padding: 0 14px; }
+
+    /* ----- tabelas viram cards (Pacientes e Documentos) ----- */
+    .tabela-pacientes-wrapper,
+    .tabela-documentos { overflow-x: visible; background: transparent; }
+
+    .tabela-pacientes,
+    #tabelaPacientes {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        table-layout: auto;
+        background: transparent;
+    }
+
+    .tabela-pacientes thead,
+    #tabelaPacientes thead { display: none; }
+
+    .tabela-pacientes tbody,
+    #tabelaPacientes tbody { display: block; }
+
+    .tabela-pacientes tbody tr,
+    #tabelaPacientes tbody tr {
+        display: block;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 4px 10px;
+    }
+
+    .tabela-pacientes tbody td,
+    #tabelaPacientes tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        width: 100% !important;
+        height: auto;
+        min-height: 34px;
+        padding: 6px 0;
+        border-bottom: 1px solid #eee;
+        white-space: normal;
+        text-align: right;
+        overflow-wrap: anywhere;
+        font-size: 13px;
+    }
+
+    .tabela-pacientes tbody td:last-child,
+    #tabelaPacientes tbody td:last-child { border-bottom: none; }
+
+    .tabela-pacientes tbody td::before,
+    #tabelaPacientes tbody td::before {
+        content: attr(data-label);
+        flex-shrink: 0;
+        font-size: 11px;
+        font-weight: bold;
+        color: #666;
+        text-align: left;
+    }
+
+    .tabela-pacientes tbody td.sem-pacientes {
+        display: block;
+        text-align: center;
+        height: auto !important;
+    }
+
+    .tabela-pacientes tbody td.sem-pacientes::before { display: none; }
+
+    /* botões de ação com área de toque maior */
+    .acoes-paciente { gap: 14px; }
+
+    .botao-acao-paciente {
+        width: 36px;
+        height: 36px;
+    }
+
+    .btn-visualizar {
+        width: auto;
+        min-width: 90px;
+        height: 34px;
+        padding: 0 14px;
+    }
+
+    /* ----- linha do tempo vira lista de cards ----- */
+    .cabecalho-tabela-tempo { display: none; }
+
+    .lista-linha-tempo { border: none; }
+
+    .linha-paciente-tempo {
+        display: block;
+        background-color: #fafafa;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .linha-paciente-tempo > span {
+        display: block;
+        padding: 6px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .linha-paciente-tempo > span:last-child { border-bottom: none; }
+
+    .linha-paciente-tempo > span::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 11px;
+        font-weight: bold;
+        color: #666;
+        margin-bottom: 2px;
+    }
+
+    .linha-tempo-vazia { min-height: 140px; }
+
+    .historico-vazio { min-height: 140px; }
+
+    .area-linha-tempo { padding: 10px; }
+
+    .barra-pesquisa-linha-tempo { height: 44px; }
+
+    /* ----- janelas (modais) ----- */
+    .modal-paciente {
+        width: 100%;
+        height: 100%;
+        padding: 12px;
+        overscroll-behavior: contain;
+    }
+
+    .card-modal-paciente,
+    .modal-senha {
+        width: 100%;
+        max-width: 480px;
+        max-height: calc(100% - 8px);
+    }
+
+    .acoes-modal-paciente button,
+    .acoes-exames button,
+    .btn-adicionar-exame { min-height: 40px; }
+
+    .form-paciente { grid-template-columns: 1fr; }
+
+    .form-paciente .campo-paciente-completo,
+    .acoes-modal-paciente { grid-column: 1; }
+
+    .dados-doc-paciente { grid-template-columns: 1fr; }
+
+    /* exames */
+    .item-exame { padding: 14px 12px; }
+
+    .exame-acompanhamento {
+        flex-wrap: wrap;
+        row-gap: 8px;
+    }
+
+    .btn-status-exame {
+        min-height: 36px;
+        width: 100%;
+    }
+
+    .acoes-exames { flex-direction: column-reverse; }
+
+    .acoes-exames button { width: 100%; }
+}
+
+/* ---------- CELULAR PEQUENO ---------- */
+@media (max-width: 480px) {
+
+    .cabecalho-sistema { height: 52px; }
+
+    .estrutura-sistema { min-height: calc(100vh - 52px); }
+
+    .logo-sistema { font-size: 22px; }
+
+    .foto-usuario {
+        width: 36px;
+        height: 36px;
+    }
+
+    .menu-item {
+        min-width: 64px;
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .resumo-pacientes {
+        gap: 14px;
+        padding: 12px;
+    }
+
+    .opcao-card h2 { font-size: 18px; }
+
+    .opcao-card button { width: 100%; }
+
+    .titulo-linha-tempo h1,
+    .titulo-historico h1,
+    .cabecalho-pacientes h1 { font-size: 17px; }
+
+    .cabecalho-documentos h2 { font-size: 15px; }
+
+    .solicitacao-cabecalho { flex-direction: column; gap: 2px; }
+
+    .cabecalho { height: 56px; }
+
+    .logo { font-size: 28px; }
+}
+
+/* ---------- TELAS DE TOQUE: alvos maiores ---------- */
+@media (pointer: coarse) {
+
+    .menu-dropdown a { padding: 14px 16px; }
+
+    .menu-botao {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* ---------- CELULAR NA HORIZONTAL (pouca altura) ---------- */
+@media (max-height: 480px) and (orientation: landscape) {
+
+    .card-modal-paciente,
+    .modal-senha { max-height: calc(100% - 8px); }
+
+    .principal { align-items: flex-start; }
+}
+
+
+
+/* =====================================================
+   JANELA DOCUMENTOS - ADICIONAR ARQUIVOS
+===================================================== */
+
+@media (min-width: 769px) {
+    .modal-documentos { width: 560px; }
+}
+
+.area-upload-docs {
+    margin-bottom: 12px;
+}
+
+.area-upload-docs small {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+}
+
+.modal-documentos .lista-docs-modal { max-height: 280px; }
+
+.doc-arquivo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.doc-arquivo-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.doc-arquivo-info strong {
+    display: block;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.doc-arquivo-info small {
+    font-size: 11px;
+    color: #666;
+}
+
+.doc-arquivo-acoes {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-doc-acao {
+    height: 28px;
+    padding: 0 10px;
+    background-color: #10143f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-doc-acao:hover { background-color: #191e5b; }
+
+.btn-doc-excluir { background-color: #b51e1e; }
+
+.btn-doc-excluir:hover { background-color: #8f1717; }
+
+@media (max-width: 768px) {
+    .doc-arquivo-acoes { width: 100%; }
+    .btn-doc-acao { flex: 1; height: 36px; }
+}
+
+
+
+/* =====================================================
+   EDITAR PACIENTE: CAMPOS CLÍNICOS EM DUAS COLUNAS
+===================================================== */
+
+.form-paciente textarea {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    background-color: #fff;
+    resize: vertical;
+}
+
+.form-paciente textarea[readonly] { background-color: #f0f0f0; }
+
+.clinico-colunas {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+}
+
+.clinico-coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+@media (min-width: 769px) {
+
+    /* a janela de edição fica mais larga para caber as duas colunas */
+    .card-modal-paciente.modal-paciente-largo {
+        width: 860px;
+        max-width: calc(100vw - 30px);
+    }
+
+    .form-paciente textarea {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .clinico-colunas {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+
+
+/* =====================================================
+   AUDITORIA: QUEM, DE QUEM E O QUE MUDOU (ANTES / DEPOIS)
+===================================================== */
+
+.lista-historico { align-items: start; }
+
+.historico-acao { margin-bottom: 2px; }
+
+.historico-linha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 11px;
+    color: #222;
+}
+
+.historico-rotulo {
+    font-size: 10.5px;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+}
+
+.historico-alteracoes {
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #ddd;
+}
+
+.alteracao {
+    margin-top: 6px;
+    padding: 6px 8px;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+}
+
+.alteracao-campo {
+    margin-bottom: 4px;
+    font-size: 11.5px;
+    font-weight: bold;
+    color: #10143f;
+}
+
+.alteracao-linha {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-top: 3px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+}
+
+.alteracao-linha > span {
+    flex: 0 0 44px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.alteracao-linha > div {
+    flex: 1;
+    min-width: 0;
+    max-height: 90px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.alteracao-antes { background-color: #fdecec; color: #8f1717; }
+
+.alteracao-depois { background-color: #e7f4ea; color: #1f6b34; }
+
+.valor-vazio { opacity: 0.7; }
